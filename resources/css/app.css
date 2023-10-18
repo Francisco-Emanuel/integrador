@@ -1,3 +1,16 @@
+@import url('./fonts.css');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-pop
+    }
+}
+
+@layer components {
+    .nav_links {
+        @apply mx-5 text-verde font-semibold
+    }
+}
