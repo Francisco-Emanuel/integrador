@@ -15,24 +15,7 @@
 </head>
 
 <body class="antialiased">
-    <header class="flex flex-col px-4 py-2">
-        <nav class="flex flex-row w-full justify-around">
-            <div class="bg-gray-900">
-                <img src="" alt="logo">
-            </div>
-            <div class="flex flex-row justify-between">
-                <a href="#" class="mx-5">restaurantes</a>
-                <a href="#" class="mx-5">rota do café</a>
-                <a href="#" class="mx-5">sobre</a>
-            </div>
-            <div class="bg-gray-900">
-                <img src="" alt="login">
-            </div>
-        </nav>
-        <main>
-
-        </main>
-    </header>
+    
 </body>
 
 </html>
