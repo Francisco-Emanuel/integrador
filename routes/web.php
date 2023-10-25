@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//PAGES
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+Route::get('/create', function () {
+    return view('create');
+});
+
+//AUTH
+Route::post('/register', [userController::class, 'register']);
+Route::post('/logout', [userController::class, 'logout']);
+Route::post('/login', [userController::class, 'login']);
+
+//IDK
+Route::post('/delete-card', [CardController::class,'deleteCards']);
+Route::post('/deleteCard', [CardController::class,'deleteCard']);
+Route::post('/create-card', [CardController::class,'createCards']);
+Route::get('/', [CardController::class, 'showCards']);
+
+

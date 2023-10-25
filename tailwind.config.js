@@ -4,7 +4,15 @@ export default {
     "./resources/**/*.js",
     "./resources/**/*.vue",],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        pop: ['Poppins', 'sans-serif'],
+      },
+      colors: {
+        'beje': '#f9f0e1',
+        'verde': '#486d24'
+      }
+    },
   },
   plugins: [],
 }
