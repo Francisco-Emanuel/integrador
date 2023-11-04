@@ -2,9 +2,11 @@ import './bootstrap';
 import axios from 'axios';
 
 
+
+//COMENTADO
 document.addEventListener('DOMContentLoaded', function () {
+    //DELETAR CARD
     const deleteButtons = document.querySelectorAll('.delete-card');
-    
     deleteButtons.forEach(button => {
         button.addEventListener('click', function () {
             const title = button.getAttribute('data-title');
@@ -22,5 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
                     });
             }
         });
-    });
+    });//FIM DELETAR CARD
+
+    //LOGOUT
+    const lBtn = document.querySelector('#userprofile');
+
+    lBtn.addEventListener('click', ()=>{
+        const confirmDelete = confirm('Você deseja sair?')
+
+        if (confirmDelete) {
+            axios.post('/logout').then(response => {window.location.reload()}).catch(error=>{console.log('Erro:', error)});
+        }
+    })
+    //FIM LOGOUT
 });
+//--------

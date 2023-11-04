@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CardController extends Controller
 {
@@ -40,7 +41,8 @@ class CardController extends Controller
         $card = Card::where('title', $resultados['dTitle'])->first();
 
         if ($card) {
-        
+            Storage::delete($card->dados_imagem);
+
             $card->delete();
             return redirect('/create')->with('success', 'Cartão excluído com sucesso.');
         } else {
