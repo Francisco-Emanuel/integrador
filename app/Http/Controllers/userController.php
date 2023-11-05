@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Validation\Rule;
+use Laravel\Socialite\Facades\Socialite;
 
 class userController extends Controller
 {
@@ -36,6 +37,28 @@ class userController extends Controller
         if (auth()->attempt(['name' => $resultados['loginName'],'password' => $resultados['loginPassword']])) {
             $request->session()->regenerate();
         }
+
+        return redirect('/');
+    }
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+    public function handleGoogleCallback()
+    {
+        $googleUser = Socialite::driver('google')->user();
+
+        $user = User::where('email', $googleUser->email)->first();
+
+        if (!$user) {
+            $user = User::create([
+                'name' => $googleUser->name,
+                'email' => $googleUser->email,
+                'password' => bcrypt('senhaAleatoria') 
+            ]);
+        }
+        
+        auth()->login($user);
 
         return redirect('/');
     }

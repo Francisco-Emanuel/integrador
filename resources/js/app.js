@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         window.location.reload();
                     })
                     .catch(error => {
-                        
                         console.error('Erro:', error);
                     });
             }

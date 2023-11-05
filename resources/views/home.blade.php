@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
     @auth
      <div class="h-full flex flex-col justify-center">
         <header class="flex flex-col px-4 py-2">
@@ -28,9 +27,9 @@
                 </div>
             </nav>
         </header>
-        <main class="w-full bg-black px-4 py-24 bg-[url('/public/image/fundo.png')]">
+        <main class="w-full bg-black px-4 py-24 bg-[url('/public/image/fundo.png')] bg-cover">
             <div>
-                <h1 class="text-beje text-2xl max-w-[20rem] drop-shadow-lg">Descubra os sabores dessa terra!</h1>
+                <h1 class="text-white text-2xl max-w-[20rem] drop-shadow-lg font-bold">Descubra os sabores dessa terra!</h1>
                 <div class="flex flex-row items-center">
                     <img src="{{URL::asset('/image/juju.svg')}}" alt="juju" class="bg-white h-[3rem] p-4 rounded-s-full">
                     <input type="text" name="pesquisa" id="search" placeholder="pesquisar" class=" rounded-e-full py-2 px-2 w-[20rem] h-[3rem] text-sm my-2" />
@@ -47,7 +46,7 @@
                 <button class="border-2 border-verde px-2 rounded-md"><img src="{{URL::asset('/image/seta.svg')}}" alt=">" class="w-2" /></button>
             </div>
             <div class="flex flex-row justify-around mt-10">
-                @foreach ($cards as $card)
+                @foreach ($cards->slice(0, 2) as $card)
                     @php
                         $card->dados_imagem = str_replace('public/', 'storage/', $card->dados_imagem);
                     @endphp
@@ -140,25 +139,41 @@
         </footer>
      </div>
     @else
-        <div class="flex flex-col justify-around h-full">
-            <div class="shadow-lg px-4 py-2">
-                <h2>registro:</h2>
+        <div class="h-screen w-screen flex flex-row bg-beje justify-center">
+            <div class="px-4 flex flex-col justify-between">
+                {{-- <h2>registro:</h2>
                 <form action="/register" method="POST">
                     @csrf
                     <input type="text" name="name" id="nome" placeholder="Nome">
                     <input type="email" name="email" id="emaiu" placeholder="Email">
                     <input type="password" name="password" id="senha" placeholder="Senha">
                     <button class="bg-neutral-300 rounded-md shadow-md p-2">Registrar</button>
-                </form>
+                </form> --}}
+                <div class="relative top-40">
+                    <img src="{{URL::asset('/image/logo.svg')}}" alt="logo" class=" w-40"  >
+                </div>
+                <div>
+                    <img src="{{URL::asset('/image/modelo.png')}}" alt="pessoa" class="">
+                </div>
             </div>
-            <div class="shadow-lg px-4 py-2">
-                <h2>login:</h2>
+            <div class="px-4 flex items-center">
+                {{-- <h2>login:</h2>
                 <form action="/login" method="POST">
                     @csrf
                     <input type="text" name="loginName" id="nome" placeholder="Nome">
                     <input type="password" name="loginPassword" id="senha" placeholder="Senha">
                     <button class="bg-neutral-300 rounded-md shadow-md p-2">Logar</button>
-                </form>
+                </form> --}}
+                <div class="bg-verde flex flex-col px-6 py-4 justify-center items-center rounded-lg gap-3">
+                    <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-[5rem] fill-white">
+                    <h1 class="font-bold text-4xl text-center text-white">Falta pouco para matar sua fome!</h1>
+                    <p class="text-white text-lg font-light">como deseja continuar?</p>
+                    <a href="{{url('/auth/google')}}" class="py-2 px-4 border-2 border-white text-white rounded-full font-bold text-xl">Fazer login com o Google</a>
+                    <div class="flex flex-row justify-between w-full gap-3">
+                        <a href="{{url('/auth/google')}}" class="border-2 border-white bg-white grow text-center text-verde rounded-full py-2 px-4 font-bold text-xl">celular</a>
+                        <a href="{{url('/auth/google')}}" class="border-2 border-white bg-white grow text-center text-verde rounded-full py-2 px-4 font-bold text-xl">e-mail</a>
+                    </div>
+                </div>
             </div>
         </div>
     @endauth

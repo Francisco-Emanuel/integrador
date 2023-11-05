@@ -27,6 +27,9 @@ Route::get('/create', function () {
 Route::post('/register', [userController::class, 'register']);
 Route::post('/logout', [userController::class, 'logout']);
 Route::post('/login', [userController::class, 'login']);
+Route::get('/auth/google', [userController::class,'redirectToGoogle']);
+Route::get('/auth/google/callback', [userController::class,'handleGoogleCallback']);
+
 
 //IDK
 Route::post('/delete-card', [CardController::class,'deleteCards']);
