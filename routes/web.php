@@ -15,15 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//PAGES
+// PAGES
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 Route::get('/create', function () {
     return view('create');
-});
+})->name('create');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
-//AUTH
+// AUTH
 Route::post('/register', [userController::class, 'register']);
 Route::post('/logout', [userController::class, 'logout']);
 Route::post('/login', [userController::class, 'login']);
@@ -31,7 +34,7 @@ Route::get('/auth/google', [userController::class,'redirectToGoogle']);
 Route::get('/auth/google/callback', [userController::class,'handleGoogleCallback']);
 
 
-//IDK
+// CARD CONTROL
 Route::post('/delete-card', [CardController::class,'deleteCards']);
 Route::post('/deleteCard', [CardController::class,'deleteCard']);
 Route::post('/create-card', [CardController::class,'createCards']);

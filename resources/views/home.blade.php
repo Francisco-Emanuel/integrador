@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gervasio codigos</title>
     @vite('resources/css/app.css')
-    @vite('resources/js/app.js')
 </head>
 
 <body>
@@ -15,15 +14,22 @@
         <header class="flex flex-col px-4 py-2">
             <nav class="flex flex-row w-full justify-between py-2 items-center">
                 <div class=" flex items-center">
-                    <img src="{{URL::asset('/image/logo.svg')}}" alt="logo" class="w-[9rem]"  >
+                    <a href="{{url('/')}}">
+                        <img src="{{URL::asset('/image/logo.svg')}}" alt="logo" class="w-[9rem]"  >
+                    </a>
                 </div>
                 <div class="flex flex-row justify-between">
                     <a href="#" class="nav_links">restaurantes</a>
                     <a href="#" class="nav_links">rota do café</a>
-                    <a href="#" class="nav_links">sobre</a>
+                    <a href="{{url('/about')}}" class="nav_links">sobre</a>
                 </div>
                 <div class="flex items-center">
-                    <img src="{{URL::asset('/image/perfil.svg')}}" alt="login" class="w-[2.5rem]" id="userprofile">
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button>
+                            <img src="{{URL::asset('/image/perfil.svg')}}" alt="login" class="w-[2.5rem]">
+                        </button>
+                    </form>
                 </div>
             </nav>
         </header>
@@ -139,39 +145,26 @@
         </footer>
      </div>
     @else
-        <div class="h-screen w-screen flex flex-row bg-beje justify-center">
-            <div class="px-4 flex flex-col justify-between">
-                {{-- <h2>registro:</h2>
-                <form action="/register" method="POST">
-                    @csrf
-                    <input type="text" name="name" id="nome" placeholder="Nome">
-                    <input type="email" name="email" id="emaiu" placeholder="Email">
-                    <input type="password" name="password" id="senha" placeholder="Senha">
-                    <button class="bg-neutral-300 rounded-md shadow-md p-2">Registrar</button>
-                </form> --}}
-                <div class="relative top-40">
-                    <img src="{{URL::asset('/image/logo.svg')}}" alt="logo" class=" w-40"  >
+        <div class="h-screen w-full flex flex-row bg-beje justify-center">
+            <div class="px-4 flex flex-col justify-end">
+                <div class="">
+                    <img src="{{URL::asset('/image/logo.svg')}}" alt="logo" class="w-60 mb-24"  >
                 </div>
                 <div>
-                    <img src="{{URL::asset('/image/modelo.png')}}" alt="pessoa" class="">
+                    <img src="{{URL::asset('/image/modelo.png')}}" alt="pessoa" class="w-[30rem]">
                 </div>
             </div>
             <div class="px-4 flex items-center">
-                {{-- <h2>login:</h2>
-                <form action="/login" method="POST">
-                    @csrf
-                    <input type="text" name="loginName" id="nome" placeholder="Nome">
-                    <input type="password" name="loginPassword" id="senha" placeholder="Senha">
-                    <button class="bg-neutral-300 rounded-md shadow-md p-2">Logar</button>
-                </form> --}}
                 <div class="bg-verde flex flex-col px-6 py-4 justify-center items-center rounded-lg gap-3">
                     <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-[5rem] fill-white">
                     <h1 class="font-bold text-4xl text-center text-white">Falta pouco para matar sua fome!</h1>
                     <p class="text-white text-lg font-light">como deseja continuar?</p>
-                    <a href="{{url('/auth/google')}}" class="py-2 px-4 border-2 border-white text-white rounded-full font-bold text-xl">Fazer login com o Google</a>
-                    <div class="flex flex-row justify-between w-full gap-3">
-                        <a href="{{url('/auth/google')}}" class="border-2 border-white bg-white grow text-center text-verde rounded-full py-2 px-4 font-bold text-xl">celular</a>
-                        <a href="{{url('/auth/google')}}" class="border-2 border-white bg-white grow text-center text-verde rounded-full py-2 px-4 font-bold text-xl">e-mail</a>
+                    <div class="flex flex-col justify-between w-full gap-3">
+                        <a href="{{url('/auth/google')}}" class="text-center py-2 px-4 border-2 border-white text-white rounded-full font-bold text-xl">Fazer login com o Google</a>
+                        <div class="w-full flex gap-3">
+                            <a href="{{url('/auth/google')}}" class="border-2 border-white bg-white grow text-center text-verde rounded-full py-2 px-4 font-bold text-xl">celular</a>
+                            <a href="{{url('/auth/google')}}" class="border-2 border-white bg-white grow text-center text-verde rounded-full py-2 px-4 font-bold text-xl">e-mail</a>    
+                        </div>
                     </div>
                 </div>
             </div>

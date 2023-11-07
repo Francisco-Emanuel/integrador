@@ -3,14 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-    body {
-        @apply font-pop
-    }
+body {
+    @apply font-pop
 }
 
-@layer components {
-    .nav_links {
-        @apply mx-5 text-verde font-semibold
-    }
+.nav_links {
+    @apply mx-5 text-verde font-semibold px-2 rounded-md
+}
+
+.active-nav_links {
+    @apply bg-verde text-white
 }
