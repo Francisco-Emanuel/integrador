@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Storage;
 
 class CardController extends Controller
 {
+    // CARDS
     public function showCards() {
         $cards = Card::all();
         return view('home', ['cards' => $cards]);
     }
-
     public function createCards(Request $request) {
         $resultados = $request->validate([
             'title' => 'required',
@@ -31,7 +31,6 @@ class CardController extends Controller
         Card::create($resultados);
         return redirect('/create');
     }
-
     public function deleteCards(Request $request) {
         $resultados = $request->validate([
             'dTitle'=> 'required',
@@ -49,7 +48,6 @@ class CardController extends Controller
             return redirect('/create')->with('error', 'Cartão não encontrado.');
         }
     }
-    
     public function deleteCard(Request $request) {
         $resultados = $request->validate([
             'title'=> 'required',

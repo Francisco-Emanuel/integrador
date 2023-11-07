@@ -39,5 +39,3 @@ Route::post('/delete-card', [CardController::class,'deleteCards']);
 Route::post('/deleteCard', [CardController::class,'deleteCard']);
 Route::post('/create-card', [CardController::class,'createCards']);
 Route::get('/', [CardController::class, 'showCards']);
-
-
