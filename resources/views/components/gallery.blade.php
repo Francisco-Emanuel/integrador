@@ -34,14 +34,10 @@
                 </div>
             @endforeach
         @elseif ($slideType === 'cidade')
-
-            <div class="relative w-48 h-56 drop-shadow-lg bg-[url('/public/image/jac.jpg')] bg-cover flex items-center justify-center">
-                <div class="absolute t-0 l-0 w-full h-full bg-gradient-to-t from-verde to-transparent">
-
-                </div>
-                <div class="relative z-[1] flex flex-col place-items-end items-center self-end">
-                    <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-[2rem] fill-white">
-                    <h2 class="text-white font-bold text-xl">jacarezinho</h2>
+            <div class="w-[15rem] h-[20rem] shadow-lg bg-[url('/public/image/jac.png')] bg-cover flex flex-col items-center justify-end py-4">
+                <div class="flex flex-col items-center gap-3">
+                    <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-10 fill-white">
+                    <h2 class="text-white font-bold text-2xl">jacarezinho</h2>
                 </div>
             </div>
         @endif

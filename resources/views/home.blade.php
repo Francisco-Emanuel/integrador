@@ -11,7 +11,11 @@
 <body>
     @auth
      <div class="h-full flex flex-col justify-center">
-        <x-Header></x-Header>
+        {{-- HEADER --}}
+        <x-Header />
+        {{-- FIM HEADER --}}
+
+        {{-- MAIN --}}
         <main class="w-full h-[20rem] lg:h-[30rem] bg-black px-4 py-2 bg-[url('/public/image/fundo.png')] bg-cover flex items-center">
             <div class="drop-shadow-lg">
                 <h1 class="text-white text-4xl font-bold max-w-[70%]">Descubra os sabores dessa terra!</h1>
@@ -21,39 +25,23 @@
                 </div>
             </div>
         </main>
+        {{-- FIM MAIN --}}
+
         {{-- RESTAURANTES --}}
         <x-Gallery slideType="restaurante" title="Melhores Restaurantes">@slot('cards', $cards)</x-Gallery> 
-        {{-- FIM DOS RESTAURANTES --}}
+        {{-- FIM RESTAURANTES --}}  
 
         {{-- CTA --}}
-        <section class="my-5 w-full h-56 bg-[url('/public/image/anunciofundo.png')] bg-cover p-6">
-            <div class="bg-white p-4 shadow-lg relative top-[6rem] flex flex-row items-center">
-                <div>
-                    <img src="{{URL::asset('/image/galfu.svg')}}" alt="galfinhu" class="w-[6rem]">
-                </div>
-                <div class="mx-4">
-                    <h1 class="font-bold text-xl">Destaque seu negócio! Junte-se ao nosso site</h1>
-                    <button class="rounded-lg bg-verde px-4 py-2 border-0 text-white text-sm">Registre-se agora</button>
-                </div>
-            </div>
-        </section>
+        <x-Cta />
         {{-- FIM CTA --}}
+
         {{-- CIDADES --}}
-        <x-Gallery slideType="cidade" title="Melhores Restaurantes">@slot('cards', $cards)</x-Gallery>
+        <x-Gallery slideType="cidade" title="Cidades do Norte Pioneiro">@slot('cards', $cards)</x-Gallery>
         {{-- FIM CIDADES --}}
-        <footer class="w-full bg-verde flex flex-col items-center justify-center py-4">    
-            <div>
-                <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-[3rem] fill-white">
-            </div>
-            <div class="py-6 flex flex-row items-center justify-center align-middle place-items-center">
-                <a href="#" class="text-white mx-2 hover:scale-105 transition-all">restaurantes</a>
-                <a href="#" class="text-white mx-2 hover:scale-105 transition-all">rota do café</a>
-                <a href="#" class="text-white mx-2 hover:scale-105 transition-all">sobre</a>
-            </div>
-            <div>
-                <p class="text-[12px] text-gray-700">&copy;paladar pioneiro todos os direitos reservados</p>
-            </div>
-        </footer>
+
+        {{-- FOOTER --}}
+        <x-Footer />
+        {{-- FOOTER --}}
      </div>
     @else
         <div class="h-screen w-full flex flex-row bg-beje justify-center">

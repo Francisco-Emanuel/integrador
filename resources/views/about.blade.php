@@ -12,7 +12,9 @@
     @auth
 
     <div class="h-full flex flex-col">
-        <x-Header></x-Header>
+        {{-- HEADER --}}
+        <x-Header />
+        {{-- FIM HEADER --}}
 
         <section class="w-full px-4 py-4 flex flex-col justify-center items-center gap-3">
             <div class="flex flex-col text-center gap-3">
@@ -38,31 +40,13 @@
             </div>
         </section>
         
-        <section class="mt-5 mb-20 w-full h-56 bg-[url('/public/image/anunciofundo.png')] bg-cover p-6">
-            <div class="bg-white p-4 shadow-lg relative top-[6rem] flex flex-row items-center">
-                <div>
-                    <img src="{{URL::asset('/image/galfu.svg')}}" alt="galfinhu" class="w-[6rem]">
-                </div>
-                <div class="mx-4">
-                    <h1 class="font-bold text-xl">Destaque seu negócio! Junte-se ao nosso site</h1>
-                    <button class="rounded-lg bg-verde px-4 py-2 border-0 text-white text-sm">Registre-se agora</button>
-                </div>
-            </div>
-        </section>
+        {{-- CTA --}}
+        <x-Cta />
+        {{-- FIM CTA --}}
 
-        <footer class=" w-full bg-verde flex flex-col items-center justify-center py-4">    
-            <div>
-                <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-[3rem] fill-white">
-            </div>
-            <div class="py-6 flex flex-row items-center justify-center align-middle place-items-center">
-                <a href="#" class="text-white mx-2 hover:scale-105 transition-all">restaurantes</a>
-                <a href="#" class="text-white mx-2 hover:scale-105 transition-all">rota do café</a>
-                <a href="#" class="text-white mx-2 hover:scale-105 transition-all">sobre</a>
-            </div>
-            <div>
-                <p class="text-[12px] text-gray-700">&copy;paladar pioneiro todos os direitos reservados</p>
-            </div>
-        </footer>
+        {{-- FOOTER --}}
+        <x-Footer />
+        {{-- FOOTER --}}
     </div>
     @else
         <div class="h-screen w-full flex flex-row bg-beje justify-center">
