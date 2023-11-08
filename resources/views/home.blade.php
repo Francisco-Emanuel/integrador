@@ -36,7 +36,7 @@
         {{-- FIM CTA --}}
 
         {{-- CIDADES --}}
-        <x-Gallery slideType="cidade" title="Cidades do Norte Pioneiro">@slot('cards', $cards)</x-Gallery>
+        <x-Gallery slideType="cidade" title="Cidades do Norte Pioneiro"></x-Gallery>
         {{-- FIM CIDADES --}}
 
         {{-- FOOTER --}}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 

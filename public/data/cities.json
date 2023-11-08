@@ -1,0 +1,78 @@
+[
+    {
+        "image": "/public/image/jac.png",
+        "title": "Jacarezinho"
+    },
+    {
+        "image": "/public/image/Ribclaro.png",
+        "title": "Ribeirão Claro"
+    },
+    {
+        "image": "/public/image/bandeirantes.png",
+        "title": "Bandeirantes"
+    },
+    {
+        "image": "/public/image/sntantonio.png",
+        "title": "Santo Antônio Da Platina"
+    },
+    {
+        "image": "/public/image/asai.png",
+        "title": "Assaí"
+    },
+    {
+        "image": "/public/image/abatia.png",
+        "title": "Abatiá"
+    },
+    {
+        "image": "/public/image/ibaiti.png",
+        "title": "Ibaiti"
+    },
+    {
+        "image": "/public/image/Carlopolis.png",
+        "title": "Carlópolis"
+    },
+    {
+        "image": "/public/image/Quatigua.png",
+        "title": "Quatiguá"
+    },
+    {
+        "image": "/public/image/WenceslauBraz.png",
+        "title": "Wenceslau Braz"
+    },
+    {
+        "image": "/public/image/Jataizinho.png",
+        "title": "Jataizinho"
+    },
+    {
+        "image": "/public/image/Andira.png",
+        "title": "Andirá"
+    },
+    {
+        "image": "/public/image/cornelio.png",
+        "title": "Cornélio Procópio"
+    },
+    {
+        "image": "/public/image/Cambara.png",
+        "title": "Cambará"
+    },
+    {
+        "image": "/public/image/Guapirama.png",
+        "title": "Guapirama"
+    },
+    {
+        "image": "/public/image/siqueiracampos.png",
+        "title": "Siquiera Campo"
+    },
+    {
+        "image": "/public/image/jacquin.png",
+        "title": "Joaquim Távora"
+    },
+    {
+        "image": "/public/image/Tomazina.png",
+        "title": "Tomazina"
+    },
+    {
+        "image": "/public/image/PedroQueiroz.png",
+        "title": "Ribeirão Do Pinhal"
+    }
+]

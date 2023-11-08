@@ -1,4 +1,4 @@
-<section class="px-4 py-4">
+<section class="px-4 py-4 flex flex-col items-center justify-center">
     <div class="flex flex-row w-full justify-between">
         <div class="flex flex-row items-center">
             <img src="{{URL::asset('/image/galfu.svg')}}" alt="galfu" class="w-[2rem]">
@@ -6,7 +6,7 @@
         </div>
         <button class="border-2 border-verde px-2 rounded-md"><img src="{{URL::asset('/image/seta.svg')}}" alt=">" class="w-2" /></button>
     </div>
-    <div class="flex flex-row justify-around mt-10">
+    <div class="flex flex-row justify-around mt-10 w-full lg:w-[70%]">
         @if ($slideType === 'restaurante')
             @foreach ($cards->slice(0, 2) as $card)
                 @php
@@ -29,17 +29,25 @@
                             </div>
                         </div>
                         <h1 class="font-bold text-2xl">{{$card->title}}</h1>
-                        <p class="text-[12px] text-gray-500 tracking-wider">{{$card->description}}</p>
+                        <p class="text-[12px] text-gray-500 tracking-wider max-w-[100%]">{{$card->description}}</p>
                     </div>
                 </div>
             @endforeach
         @elseif ($slideType === 'cidade')
-            <div class="w-[15rem] h-[20rem] shadow-lg bg-[url('/public/image/jac.png')] bg-cover flex flex-col items-center justify-end py-4">
-                <div class="flex flex-col items-center gap-3">
-                    <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-10 fill-white">
-                    <h2 class="text-white font-bold text-2xl">jacarezinho</h2>
+            @php
+                $filepath = public_path('data/cities.json');
+                $data = json_decode(file_get_contents($filepath), true);
+                
+                $slicedData = array_slice($data, 0, 3);
+            @endphp
+            @foreach ($slicedData as $item)
+                <div class="w-[15rem] h-[20rem] lg:w-[20rem] lg:h-[25rem] shadow-2xl bg-[url('{{$item['image']}}')] bg-cover flex flex-col items-center justify-end py-4">
+                    <div class="flex flex-col items-center gap-3">
+                        <img src="{{URL::asset('/image/galfuc.svg')}}" alt="garfao" class="w-10 fill-white">
+                        <h2 class="text-white font-bold text-2xl">{{$item['title']}}</h2>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         @endif
                                 
     </div>
